@@ -18,7 +18,7 @@ public class Student {
         Scanner reader = new Scanner(System.in);
         System.out.println("Enter the name of student: ");
         String nameOfStudent = reader.nextLine();
-        studentInfo.put(key, nameOfStudent);
+        this.studentInfo.put(key, nameOfStudent);
         key++;
     }
 
@@ -34,8 +34,8 @@ public class Student {
 
     void getOrdinalNumberAndNameOfStudent() {
         System.out.println("Ordinal number and name of the students: ");
-        for (Integer studentKey : studentInfo.keySet()) {
-            System.out.println(studentKey + ". " + studentInfo.get(studentKey));
+        for (Integer studentKey : this.studentInfo.keySet()) {
+            System.out.println(studentKey + ". " + this.studentInfo.get(studentKey));
         }
     }
 
@@ -50,7 +50,7 @@ public class Student {
         Scanner reader = new Scanner(System.in);
         System.out.println("Please enter the ordinal number of the student you want to remove: ");
         int num = reader.nextInt();
-        studentInfo.remove(num);
+        this.studentInfo.remove(num);
         System.out.println("Your list after removal");
         getOrdinalNumberAndNameOfStudent();
     }
@@ -59,7 +59,7 @@ public class Student {
         Scanner reader = new Scanner(System.in);
         System.out.println("Please enter the ordinal number of the student whose name you want to change:");
         int num = reader.nextInt();
-        for (Map.Entry<Integer, String> map : studentInfo.entrySet()) {
+        for (Map.Entry<Integer, String> map : this.studentInfo.entrySet()) {
             if (map.getKey().equals(num)) {
                 System.out.println(map.getKey() + ". " + map.getValue());
             }
@@ -71,7 +71,7 @@ public class Student {
     private void changeStudentName(int num) {
         Scanner reader = new Scanner(System.in);
         System.out.println("Please enter new name:");
-        studentInfo.put(num, reader.nextLine());
+        this.studentInfo.put(num, reader.nextLine());
     }
 
 }
