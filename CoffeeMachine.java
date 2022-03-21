@@ -23,13 +23,13 @@ public class CoffeeMachine {
 
     public int priceToPay() {
         System.out.println("Your coffee is: 3€ \nPlease input your money");
-        System.out.println("You input: " + coffeePrice + "€");
-        if (coffeePrice >= 3) {
+        System.out.println("You input: " + this.coffeePrice + "€");
+        if (this.coffeePrice >= 3) {
             inputEnoughMoneyToPay();
         } else {
             inputNotEnoughMoneyToPay();
         }
-        return coffeePrice;
+        return this.coffeePrice;
     }
 
     private void inputEnoughMoneyToPay() {
@@ -41,10 +41,10 @@ public class CoffeeMachine {
     }
 
     private void checkingTheAmountOfGlasses() {
-        if (enoughAmountOfGlasses) {
+        if (this.enoughAmountOfGlasses) {
             System.out.println("You can try best coffee in town");
         }
-        if (!enoughAmountOfGlasses) {
+        if (!this.enoughAmountOfGlasses) {
             System.out.println("COFFEE MACHINE DEFECTIVE!");
             System.exit(1);
         }
