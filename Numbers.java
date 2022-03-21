@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Numbers {
 
-    ArrayList<Integer> listOfNumbers;
+    private ArrayList<Integer> listOfNumbers;
 
 
     public Numbers(ArrayList<Integer> listOfNumbers) {
@@ -18,10 +18,10 @@ public class Numbers {
         Scanner reader = new Scanner(System.in);
         System.out.println("Please enter number");
         int number = reader.nextInt();
-        listOfNumbers.add(number);
+        this.listOfNumbers.add(number);
     }
 
-    public void whileLoopAddNumbers() {
+    public void addNumbersBasedOnUserInput() {
         Scanner reader = new Scanner(System.in);
         char yOrN;
         do {
@@ -30,26 +30,26 @@ public class Numbers {
             yOrN = reader.next().charAt(0);
         } while (yOrN == 'y');
         System.out.print("Your list --> ");
-        forLoop(listOfNumbers);
+        printAllNumbers(this.listOfNumbers);
     }
 
-    private void forLoop(ArrayList<Integer> listOfNumbers) {
+    private void printAllNumbers(ArrayList<Integer> listOfNumbers) {
         for (int number : listOfNumbers) {
             System.out.print(number + " ");
         }
     }
 
-    public int minValue() {
-        return listOfNumbers.indexOf(Collections.min(listOfNumbers));
+    public void minValue() {
+        System.out.println("\nMin value in ArrayList is: " + Collections.min(this.listOfNumbers));
     }
 
-    public int maxValue() {
-        return listOfNumbers.indexOf(Collections.max(listOfNumbers));
+    public void maxValue() {
+        System.out.println("Max value in ArrayList is: " + Collections.max(this.listOfNumbers));
     }
 
     void sumOfNumbersInArrayList() {
         int sum = 0;
-        for (int element : listOfNumbers) {
+        for (int element : this.listOfNumbers) {
             sum = sum + element;
         }
         System.out.println("Sum of numbers is: " + sum);
@@ -58,7 +58,7 @@ public class Numbers {
 
     void isNumberPrime() {
         ArrayList<Integer> listOfNoPrimeNumbers = new ArrayList<>();
-        for (Integer element : listOfNumbers) {
+        for (Integer element : this.listOfNumbers) {
             for (int i = 2; i < element; i++) {
                 if (element % i == 0) {
                     listOfNoPrimeNumbers.add(element);
@@ -67,13 +67,13 @@ public class Numbers {
             }
         }
         System.out.print("Not prime numbers: ");
-        forLoop(listOfNoPrimeNumbers);
+        printAllNumbers(listOfNoPrimeNumbers);
         listOfPrimeNumbers(listOfNoPrimeNumbers);
     }
 
     private void listOfPrimeNumbers(ArrayList<Integer> listOfNoPrimeNumbers) {
-        listOfNumbers.removeAll(listOfNoPrimeNumbers);
+        this.listOfNumbers.removeAll(listOfNoPrimeNumbers);
         System.out.print("\nPrime numbers: ");
-        forLoop(listOfNumbers);
+        printAllNumbers(this.listOfNumbers);
     }
 }
